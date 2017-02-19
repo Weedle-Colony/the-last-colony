@@ -11,6 +11,7 @@ namespace TheLastColony
         static void Main(string[] args)
         {
             Console.WriteLine("Hello Weedlewhomps!");
+            Console.WriteLine("Hello, hello!");
 
             return;
         }
