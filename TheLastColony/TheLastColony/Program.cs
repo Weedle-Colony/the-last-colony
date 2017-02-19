@@ -10,7 +10,7 @@ namespace TheLastColony
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Weedles!");
+            Console.WriteLine("Hello Weedlewhomps!");
 
             return;
         }
