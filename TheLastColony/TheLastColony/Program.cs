@@ -42,6 +42,7 @@ namespace TheLastColony
                     case '1':
                         Console.WriteLine("\n\nRunning Lifecycle Component Test...\n\n");
                         Thread.Sleep(500);
+                        Console.Clear();
 
                         TestLifecycle();
 
@@ -100,7 +101,7 @@ namespace TheLastColony
 
             Console.WriteLine($"\n{deadList.Count()} creatures self-sustained until Year: " + --CurrentYear);
 
-            foreach (var creature in deadList.OrderBy(c => c.BirthYear))
+            foreach (Creature creature in deadList.OrderBy(c => c.BirthYear))
             {
                 Console.WriteLine($"{creature.GetType().Name} [{creature.Gender}] lived to be {creature.DeathYear - creature.BirthYear}, born in Year {creature.BirthYear} and died in Year {creature.DeathYear}");
             }

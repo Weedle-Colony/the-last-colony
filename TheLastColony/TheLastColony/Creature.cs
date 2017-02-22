@@ -13,6 +13,8 @@ namespace TheLastColony
         public int MaxAge { get; private set; }
         //Will not keep DeathYear property; using for testing
         public int DeathYear { get; set; }
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }
 
         private static readonly Random _random = new Random();
         private static List<Creature> _offspringList = new List<Creature>();
@@ -21,6 +23,12 @@ namespace TheLastColony
         {
             BirthYear = Program.CurrentYear;
             ComputeMaxAgeAndGender();          
+        }
+
+        public void Move(int x, int y)
+        {
+            PositionX = x;
+            PositionY = y;
         }
 
         private void ComputeMaxAgeAndGender()
@@ -101,13 +109,27 @@ namespace TheLastColony
 
     class Carnivore : Creature
     {
+        public string Name { get; set; }
+
+        public Carnivore() : base()
+        {
+
+        }
     }
 
     class Herbivore : Creature
     {
+        public Herbivore()
+        {
+
+        }
     }
 
     class Omnivore : Creature
     {
+        public Omnivore()
+        {
+
+        }
     }
 }
