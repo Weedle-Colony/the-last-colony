@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading;
+using WorldState;
+
 
 namespace TheLastColony
 {
@@ -27,6 +30,7 @@ namespace TheLastColony
                 Console.WriteLine("Test Menu");
                 Console.WriteLine(divider);
                 Console.WriteLine("1. Test Lifecycle Component");
+                Console.WriteLine("2. Test World State Component");
                 Console.WriteLine("Q. Quit Test Suite");
                 Console.WriteLine(divider);
                 Console.Write("\nWhat tests would you like to run? (Use test number): ");
@@ -45,6 +49,14 @@ namespace TheLastColony
                         Console.Clear();
 
                         TestLifecycle();
+
+                        break;
+                    case '2':
+                        Console.WriteLine("\n\nRunning World State Component Test...\n\n");
+                        Thread.Sleep(500);
+                        Console.Clear();
+
+                        TestWorldState();
 
                         break;
                     case 'Q':
@@ -99,14 +111,21 @@ namespace TheLastColony
                 CurrentYear++;
             }
 
-            Console.WriteLine($"\n{deadList.Count()} creatures self-sustained until Year: " + --CurrentYear);
-
             foreach (Creature creature in deadList.OrderBy(c => c.BirthYear))
             {
                 Console.WriteLine($"{creature.GetType().Name} [{creature.Gender}] lived to be {creature.DeathYear - creature.BirthYear}, born in Year {creature.BirthYear} and died in Year {creature.DeathYear}");
             }
 
+            Console.WriteLine($"\n{deadList.Count()} creatures self-sustained until Year: " + --CurrentYear);
+
             return;
         }
+
+        static void TestWorldState()
+        {
+            WorldUtilities.TestPrintGrid();
+        }
+
+        
     }
 }
