@@ -62,6 +62,9 @@ namespace TheLastColony
         static void TestLifecycle()
         {
             CurrentYear = 0;
+            Carnivore.Count = 1;
+            Herbivore.Count = 1;
+            Omnivore.Count = 1;
 
             List<Creature> initialList = new List<Creature>() {
             new Carnivore(),
@@ -74,7 +77,7 @@ namespace TheLastColony
 
             foreach (Creature creature in initialList)
             {
-                Console.WriteLine($"Original {creature.GetType().Name} with Gender [{creature.Gender}] and MaxAge {creature.MaxAge}");
+                Console.WriteLine($"{creature.Name} with Gender [{creature.Gender}] and MaxAge {creature.MaxAge}");
             }
 
 
@@ -103,7 +106,7 @@ namespace TheLastColony
 
             foreach (Creature creature in deadList.OrderBy(c => c.BirthYear))
             {
-                Console.WriteLine($"{creature.GetType().Name} [{creature.Gender}] lived to be {creature.DeathYear - creature.BirthYear}, born in Year {creature.BirthYear} and died in Year {creature.DeathYear}");
+                Console.WriteLine($"{creature.Name} [{creature.Gender}] lived to be {creature.DeathYear - creature.BirthYear}, born in Year {creature.BirthYear} and died in Year {creature.DeathYear}");
             }
 
             return;

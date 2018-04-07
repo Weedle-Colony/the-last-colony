@@ -6,6 +6,7 @@ namespace TheLastColony
 {
     class Creature
     {
+        public virtual string Name { get; set; }
         public char Gender { get; private set; }
         public int BirthYear { get; private set; }
         public int ReproductionRate { get; private set; }
@@ -109,27 +110,34 @@ namespace TheLastColony
 
     class Carnivore : Creature
     {
-        public string Name { get; set; }
+        public override string Name { get; set; }
+        public static int Count { get; set; } = 1;
 
-        public Carnivore() : base()
+        public Carnivore()
         {
-
+            Name = "Carnivore" + Count++;
         }
     }
 
     class Herbivore : Creature
     {
+        public override string Name { get; set; }
+        public static int Count { get; set; } = 1;
+
         public Herbivore()
         {
-
+            Name = "Herbivore" + Count++;
         }
     }
 
     class Omnivore : Creature
     {
+        public override string Name { get; set; }
+        public static int Count { get; set; } = 1;
+
         public Omnivore()
         {
-
+            Name = "Omnivore" + Count++;
         }
     }
 }
